@@ -1,0 +1,58 @@
+<div class="container">
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="fa fa-users"></span>&nbsp;角色管理
+                    </div>
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.row -->
+        <button class="btn btn-info" onclick="addRole()">
+            <span class="fa fa-plus"></span>&nbsp;新增
+        </button>
+        <!--显示角色列表-->
+        <table id="jqGrid" class="table table-bordered"></table>
+        <div id="jqGridPager"></div>
+
+    <div class="modal" tabindex="-1" id="addRoleModal" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">添加角色</h4>
+                    <button class="close" onclick="closeMyModal()">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                   <form>
+                       <div class="form-group row">
+                           <label for="addRoleName" class="col-sm-2 col-form-label">角色名</label>
+                           <div class="col-sm-10">
+                               <input type="text" class="form-control" id="addRoleName">
+                           </div>
+                       </div>
+                   </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeMyModal()">关闭</button>
+                    <button type="button" class="btn btn-primary" id="saveAddRoleBtn">保存</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+</div>
+
