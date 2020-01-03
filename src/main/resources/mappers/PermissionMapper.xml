@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzit.dao.PermissionDao" >
+    <resultMap id="BasePermissionMap" type="com.xzit.entity.model.PermissionMenu">
+        <id column="id" property="id"></id>
+        <result column="parent_id" property="parentId"></result>
+        <result column="name" property="name"></result>
+    </resultMap>
+
+
+    <!--
+        获取用户-角色-权限-菜单
+    -->
+    <select id="getPermissionMenuByLevel" resultMap="BasePermissionMap">
+        SELECT permission.id id , permission.name name ,  permission.uri uri
+        FROM
+          tb_users_role usersRole,
+          tb_permission permission ,
+          tb_role_permission rolepermission
+        <where>
+            usersRole.users_id=#{usrId}
+            AND
+            usersRole.role_id=rolepermission.role_id
+            AND
+            rolepermission.permission_id=permission.id
+            AND
+            permission.parent_id=#{parentId}
+            AND
+            permission.is_deleted=0
+        </where>
+    </select>
+
+
+</mapper>

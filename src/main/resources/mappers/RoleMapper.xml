@@ -10,6 +10,7 @@
         <result column="edited_time" property="edited_time"></result>
         <result column="editedUser" property="editedUser"></result>
     </resultMap>
+
     <!--
         获取所有角色getAllRoles
     -->
